@@ -1,0 +1,7 @@
+{
+  "name": "CalcIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
