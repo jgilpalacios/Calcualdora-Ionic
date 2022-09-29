@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  //places = ['1','2','3'];
   resultado: any="";
   acumulado: any=0;
   modo: number=0
@@ -14,9 +13,8 @@ export class HomePage {
   constructor() {}
 
   muestra ( t){
-    console.log(t);
-    //alert(t);
-    if (t in ['0','1','2','3','4','5','6','7','8']){
+
+    if (t in ['0','1','2','3','4','5','6','7','8','9']){
       if(this.modo===0){
         if(!(this.resultado==='' && t==='0')) this.resultado+=t;
       }else{
