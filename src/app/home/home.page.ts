@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RomanoService } from '../services/romano.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,9 @@ export class HomePage {
   acumulado: any=0;
   modo: number=0
   operador:string='';
-  constructor() {}
+  estaEnRomano: boolean =false;
+  valorArabigo: string ='';
+  constructor(public romanoService:RomanoService) {}
 
   muestra ( t){
 
@@ -61,6 +64,14 @@ export class HomePage {
       this.resultado="";
     }else if(t==='√'){
       this.resultado=Math.floor(Math.sqrt(this.resultado*1));
+    } else if(t==='R'){
+      if(!this.estaEnRomano){
+        this.valorArabigo=this.resultado
+        this.resultado=this.romanoService.genera(this.resultado);
+      } else {
+        this.resultado=this.valorArabigo;
+      }
+      this.estaEnRomano=!this.estaEnRomano;
     }
   }
 }
